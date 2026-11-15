@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="ktBuEtboqv1VrSsz2MVxDd"><head data-page-node-id="qzILAfU5C1ALr232I9e4vx">
+<meta charset="UTF-8" data-page-node-id="JRlA2ouWSXzeUOLfhhIAqr">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="qJk3XPC2BJLDPFzlpBAJ4k">
+<title>新密市矿区中学 · 自强不息 崇德爱国</title>
+<style>
+  :root{
+    --bg:#fbfbfd;
+    --ink:#1d1d1f;
+    --sub:#6e6e73;
+    --accent:#0071e3;
+    --line:rgba(0,0,0,.08);
+    --ease:cubic-bezier(.28,.11,.32,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);
+  }
+  img{display:block;width:100%;}
+  [data-parallax]{will-change:transform;}
+  ::selection{background:rgba(0,113,227,.15);}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;height:52px;
+    background:rgba(251,251,253,.72);
+    backdrop-filter:saturate(180%) blur(20px);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .nav-in{width:100%;max-width:1024px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600;letter-spacing:.5px;}
+  .nav-brand img{width:24px;height:24px;border-radius:50%;object-fit:cover;}
+  .nav-links{display:flex;gap:26px;font-size:12px;}
+  .nav-links a{color:#424245;text-decoration:none;transition:color .3s;}
+  .nav-links a:hover{color:var(--accent);}
+  @media(max-width:720px){.nav-links{display:none;}}
+  /* backdrop blur over a decoding video is very costly on phones */
+  body.dark-in-view nav{
+    background:rgba(251,251,253,.97);
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:150px 22px 0;text-align:center;overflow:hidden;}
+  .hero .kicker{
+    font-size:15px;font-weight:600;letter-spacing:.4em;color:var(--accent);margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(44px,8.5vw,104px);font-weight:700;letter-spacing:.02em;line-height:1.12;
+  }
+  .hero .sub{
+    margin:22px auto 0;max-width:640px;font-size:clamp(17px,2.4vw,22px);color:var(--sub);line-height:1.6;font-weight:400;
+  }
+  .hero-media{
+    max-width:1100px;margin:64px auto 0;border-radius:28px;overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.14);
+  }
+  .hero-media img{transform:scale(1.12);transition:transform 1.6s var(--ease);will-change:transform;}
+  .hero-media.on img{transform:scale(1);}
+  /* load animation */
+  .fi{opacity:0;transform:translateY(26px);animation:rise 1.1s var(--ease) forwards;}
+  .fi.settled{opacity:1;transform:none;animation:none;}
+  @keyframes rise{to{opacity:1;transform:none;}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.5s}
+
+  /* ---------- Intro veil (replays on every entry) ---------- */
+  .intro{
+    position:fixed;inset:0;z-index:9999;background:#fbfbfd;pointer-events:none;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    transition:opacity .42s var(--ease);
+    animation:introFallback .01s linear 2.6s forwards;
+  }
+  .intro.hide{opacity:0;}
+  .intro img{width:66px;height:66px;border-radius:50%;object-fit:cover;
+    opacity:0;transform:scale(.9);animation:introPop .5s var(--ease) forwards;}
+  .intro .intro-name{font-size:16px;font-weight:600;letter-spacing:.28em;color:#1d1d1f;
+    opacity:0;transform:translateY(10px);animation:rise .6s var(--ease) .08s forwards;}
+  .intro .intro-est{font-size:11px;letter-spacing:.34em;color:#86868b;
+    opacity:0;transform:translateY(10px);animation:rise .6s var(--ease) .16s forwards;}
+  .intro .intro-bar{width:110px;height:2px;margin-top:8px;border-radius:2px;background:#e8e8ed;overflow:hidden;}
+  .intro .intro-bar i{display:block;width:100%;height:100%;background:#0071e3;
+    transform:translateX(-100%);animation:introFill .7s var(--ease) .1s forwards;}
+  @keyframes introPop{to{opacity:1;transform:scale(1);}}
+  @keyframes introFill{to{transform:translateX(0);}}
+  @keyframes introFallback{to{opacity:0;visibility:hidden;}}
+  @media(prefers-reduced-motion:reduce){.intro{display:none;}}
+
+  /* ---------- Generic section ---------- */
+  section{padding:130px 22px;}
+  .col{max-width:1024px;margin:0 auto;}
+  .center{text-align:center;}
+  h2.mega{
+    font-size:clamp(34px,5.6vw,64px);font-weight:700;line-height:1.18;letter-spacing:.01em;
+  }
+  .lead{
+    margin:24px auto 0;max-width:680px;font-size:17px;line-height:1.9;color:var(--sub);
+  }
+  .eyebrow{font-size:14px;font-weight:600;letter-spacing:.35em;color:var(--accent);margin-bottom:16px;}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease);}
+  .rv.on{opacity:1;transform:none;}
+  .rv-img{overflow:hidden;border-radius:24px;}
+  .rv-img img{transform:scale(1.08);transition:transform 1.4s var(--ease);}
+  .rv-img.on img{transform:scale(1);}
+
+  /* ---------- Stats ---------- */
+  .stats{
+    max-width:1024px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line);
+  }
+  .stat{padding:44px 12px;text-align:center;border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat b{font-size:clamp(34px,4.6vw,52px);font-weight:700;display:block;letter-spacing:-.01em;}
+  .stat b em{font-style:normal;color:var(--accent);}
+  .stat span{font-size:13px;color:var(--sub);letter-spacing:.12em;}
+  @media(max-width:720px){.stats{grid-template-columns:1fr 1fr;}.stat:nth-child(2){border-right:none;}.stat:nth-child(-n+2){border-bottom:1px solid var(--line);}}
+
+  /* ---------- Campus cards ---------- */
+  .cards{display:grid;gap:28px;margin-top:64px;}
+  .card-photo{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1);}
+  .card-photo img{aspect-ratio:16/9;object-fit:cover;will-change:transform;}
+  .card-photo .tag{
+    position:absolute;left:22px;bottom:20px;background:rgba(255,255,255,.82);
+    backdrop-filter:blur(12px);border-radius:999px;padding:8px 18px;
+    font-size:13px;font-weight:600;letter-spacing:.06em;
+  }
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:720px){.two{grid-template-columns:1fr;}}
+
+  /* ---------- Dark performance section ---------- */
+  .dark{background:#000;color:#f5f5f7;overflow:hidden;}
+  .dark .lead{color:#a1a1a6;}
+  .dark .eyebrow{color:#2997ff;}
+  /* ---------- Folded video deck (mobile-optimised) ---------- */
+  .deck{max-width:560px;margin:64px auto 0;}
+  .deck-stage{
+    position:relative;width:min(420px,74vw);margin:0 auto;
+    display:grid;perspective:1200px;touch-action:pan-y;
+    cursor:grab;user-select:none;-webkit-user-select:none;
+  }
+  .deck.dragging .deck-stage{cursor:grabbing;}
+  .vcard{
+    position:relative;grid-area:1/1;display:flex;flex-direction:column;
+    border-radius:22px;overflow:hidden;background:#111;border:1px solid #2a2a2c;
+    cursor:pointer;
+    transition:transform .58s var(--ease),opacity .58s var(--ease);
+    box-shadow:0 16px 36px rgba(0,0,0,.42);
+  }
+  .deck.dragging .vcard{transition:none;}
+  .vcard.is-active{
+    transform:translateX(0) rotateY(0) scale(1);z-index:3;opacity:1;
+    box-shadow:0 22px 48px rgba(0,0,0,.55);
+  }
+  .vcard.is-right{
+    transform:translateX(60%) rotateY(-30deg) scale(.82);transform-origin:left center;
+    z-index:2;opacity:1;
+  }
+  .vcard.is-left{
+    transform:translateX(-60%) rotateY(30deg) scale(.82);transform-origin:right center;
+    z-index:1;opacity:1;
+  }
+  /* a flat overlay dims side cards — no CSS filter over decoding video */
+  .vcard.is-right::before,.vcard.is-left::before{
+    content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:rgba(0,0,0,.44);
+    box-shadow:inset 0 0 0 1px rgba(41,151,255,.18);
+    transition:background .3s var(--ease);
+  }
+  .vcard.is-right:hover::before,.vcard.is-left:hover::before{background:rgba(0,0,0,.26);}
+  .vcard video{
+    width:100%;aspect-ratio:16/9;flex:0 0 auto;
+    object-fit:cover;display:block;background:#000;pointer-events:none;
+  }
+  .vcard.is-active video{pointer-events:auto;}
+  .vcard .meta{
+    position:relative;flex:0 0 auto;min-height:76px;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:12px 20px 14px;background:#0e0e0f;pointer-events:none;
+  }
+  /* the sweep now stays inside the caption bar and only animates opacity */
+  .vcard.is-active .meta::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(90deg,transparent,rgba(41,151,255,.12),transparent);
+    opacity:0;animation:metaGlow .85s var(--ease) .12s forwards;
+  }
+  .deck.dragging .vcard .meta::after{animation:none;opacity:0;}
+  @keyframes metaGlow{0%{opacity:0}45%{opacity:1}100%{opacity:0}}
+  .vcard .meta b{display:block;font-size:16px;font-weight:600;line-height:1.35;}
+  .vcard .meta span{display:block;margin-top:4px;font-size:12px;color:#a1a1a6;letter-spacing:.06em;line-height:1.4;}
+  @media(max-width:480px){
+    .vcard .meta{min-height:72px;padding:11px 16px 13px;}
+    .vcard .meta b{font-size:15px;}
+    .vcard .meta span{font-size:11px;letter-spacing:.02em;}
+    .vcard{transition-duration:.46s;}
+  }
+  /* while a video decodes, drop the 3D context entirely (big win on iOS) */
+  .deck.playing .deck-stage{perspective:none;}
+  .deck.playing .vcard.is-active{transform:none;}
+  .deck.playing .vcard.is-right{transform:translateX(60%) scale(.82);}
+  .deck.playing .vcard.is-left{transform:translateX(-60%) scale(.82);}
+  .deck-stage::after{
+    content:"";position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);
+    width:64px;height:3px;border-radius:2px;background:linear-gradient(90deg,transparent,#3a3a3c 20%,#3a3a3c 80%,transparent);
+    opacity:.7;pointer-events:none;
+  }
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px;grid-auto-flow:dense;}
+  @media(max-width:720px){.gallery{grid-template-columns:1fr 1fr;}}
+  .gallery img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;transition:transform .6s var(--ease);}
+  .gallery img:hover{transform:scale(1.03);}
+  .gallery .featured{
+    grid-column:span 2;grid-row:span 2;aspect-ratio:auto;height:100%;
+    box-shadow:0 24px 60px rgba(0,0,0,.45);
+  }
+
+  /* ---------- Values ---------- */
+  .values{display:flex;justify-content:center;gap:clamp(14px,4vw,54px);margin-top:64px;flex-wrap:wrap;}
+  .value{text-align:center;}
+  .value .ch{
+    font-size:clamp(40px,7vw,72px);font-weight:700;line-height:1;
+    background:linear-gradient(180deg,#1d1d1f 30%,#6e6e73 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    transition:transform .6s var(--ease);
+  }
+  .value:hover .ch{transform:translateY(-6px);}
+  .value span{display:block;margin-top:10px;font-size:12px;letter-spacing:.3em;color:var(--sub);}
+
+  /* ---------- Honor list ---------- */
+  .honor-list{max-width:760px;margin:56px auto 0;}
+  .honor-item{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:22px 6px;border-top:1px solid var(--line);font-size:16px;
+  }
+  .honor-item:last-child{border-bottom:1px solid var(--line);}
+  .honor-item i{font-style:normal;font-size:12px;color:var(--sub);letter-spacing:.1em;white-space:nowrap;}
+
+  /* ---------- Recruit ---------- */
+  .recruit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px;}
+  @media(max-width:860px){.recruit-grid{grid-template-columns:1fr 1fr;}}
+  .r-card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 24px;
+    transition:transform .6s var(--ease),box-shadow .6s var(--ease);
+  }
+  .r-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.08);}
+  .r-card .k{font-size:13px;color:var(--sub);letter-spacing:.1em;}
+  .r-card .v{font-size:30px;font-weight:700;margin-top:8px;}
+  .r-card .v em{font-style:normal;font-size:14px;color:var(--sub);font-weight:400;}
+
+  /* ---------- Tips ---------- */
+  .tips{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px;}
+  @media(max-width:720px){.tips{grid-template-columns:1fr;}}
+  .tip{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;
+    transition:transform .6s var(--ease),box-shadow .6s var(--ease);
+  }
+  .tip:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(0,0,0,.07);}
+  .tip h4{font-size:17px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+  .tip h4 i{
+    font-style:normal;flex:0 0 26px;height:26px;border-radius:50%;background:var(--bg);
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+    font-size:12px;color:var(--accent);font-weight:700;
+  }
+  .tip p,.tip ol{font-size:14px;color:var(--sub);line-height:1.9;}
+  .tip ol{margin-left:18px;}
+
+  /* ---------- Contact / footer ---------- */
+  .contact-band{
+    background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+  @media(max-width:720px){.contact-grid{grid-template-columns:1fr;}}
+  .c-item b{display:block;font-size:13px;color:var(--sub);letter-spacing:.15em;margin-bottom:8px;}
+  .c-item p{font-size:17px;font-weight:600;line-height:1.6;}
+  .c-item a{color:var(--accent);text-decoration:none;}
+  footer{padding:56px 22px;text-align:center;}
+  footer .fm{font-size:15px;font-weight:600;letter-spacing:.5em;text-indent:.5em;}
+  footer p{margin-top:12px;font-size:12px;color:var(--sub);letter-spacing:.1em;line-height:2;}
+</style>
+<style id="__dm_no_drag_style__">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
+<body data-page-node-id="aSVmD1OhvU3FZQOkEAUt1J" style="">
+
+<div id="intro" class="intro" aria-hidden="true">
+  <img src="assets/logo.jpg" alt="">
+  <div class="intro-name">新密市矿区中学</div>
+  <div class="intro-est">EST. 1961</div>
+  <div class="intro-bar"><i></i></div>
+</div>
+
+<nav data-page-node-id="ySBG0uDEXywAZXRplMNrDp">
+  <div class="nav-in" data-page-node-id="6XZBdjowOiPM37np79HpCi">
+    <div class="nav-brand" data-page-node-id="qedx1OgvY5qvCFyWmHTmhv"><img src="assets/logo.jpg" alt="校徽" data-page-node-id="ovhgj2CaDYVNYaa4mieUFx">新密市矿区中学</div>
+    <div class="nav-links" data-page-node-id="X5U7EoYeY03P81CE8MD3Cl">
+      <a href="#about" data-page-node-id="KDtIrujbm1Lky6M6Xg0b7x">概况</a><a href="#campus" data-page-node-id="W7StmzPzdAxRsUBHanBN1T">校园</a><a href="#art" data-page-node-id="DAHZuvPcMyM8x6Sext9f0Q">艺术</a>
+      <a href="#honor" data-page-node-id="PcAjrG3oZcN71eSEiV8ViJ">荣誉</a><a href="#recruit" data-page-node-id="3HbtkJn2ox59LzUlFFjgc7">招生</a><a href="#contact" data-page-node-id="Xh89E3TJXGuDLc7SDOavkN">联系</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" data-page-node-id="HkqNP22QpPfM3drZKuI5GX">
+  <div class="kicker fi d1" data-page-node-id="AmI7wZtODSu45OSlGwPV63">EST. 1961 · 新密市教育体育局直属公办学校</div>
+  <h1 class="fi d2" data-page-node-id="JflLgb09c3lf8VuiSgdSHE">自强不息<br data-page-node-id="97d26OTPt3tygUcP3Foyaq">崇德爱国</h1>
+  <p class="sub fi d3" data-page-node-id="xkHFAhDIMsm13RS1TD9Pwb">巍巍青屏山，悠悠溱洧水。一所以"低进高出、高进优出"见长的学校，为每一个孩子的梦想留一片天空。</p>
+  <div class="hero-media fi d4 rv-img on" id="heroImg" data-page-node-id="UObCKoHO367sjKZSZMh3yq">
+    <img src="assets/gate.jpg" alt="新密市矿区中学校门" data-parallax="0.08" data-page-node-id="mVXpmgsZGo1djYCVbShLnn" style="transform: translateY(-62.4px) scale(1.06);">
+  </div>
+</header>
+
+<!-- 数说 -->
+<section id="about" style="padding-bottom:0;" data-page-node-id="Ck2WHLhdo4W1Ckq62M347A">
+  <div class="col center rv on" data-page-node-id="KN9l8DjxxVQKaEF0IlDfLG">
+    <div class="eyebrow" data-page-node-id="HzBhH1AvC7XivmaRC2URba">学校概况</div>
+    <h2 class="mega" data-page-node-id="ofN6o9J4ur9lZYOqqrsdCZ">六十五载<br data-page-node-id="JGETDaguHdYwGwMFOBbNNs">弦歌不辍</h2>
+    <p class="lead" data-page-node-id="CjsC2AytXyfuPwCy96GmJe">学校成立于 1961 年，原为"新密矿务局职工子弟学校"，2006 年移交新密市并更为今名。现有高中部与小学部，是新密市第一高级中学共建学校，教学设施完备，办学条件一流。</p>
+  </div>
+  <div class="stats rv on" style="margin-top:80px;" data-page-node-id="qiRcpkBeQqTrJ6YhbwvRPl">
+    <div class="stat" data-page-node-id="tDn0dejVXFNW5xRcNTQACa"><b data-page-node-id="kVlfp7VkJFPmyEvUSqSiNC"><em data-count="1961" data-page-node-id="8FM0ZpKweHmUsmdiHgLAft">1961</em></b><span data-page-node-id="OCNq9K21qMuqCq5y2RZBST">建校年份</span></div>
+    <div class="stat" data-page-node-id="NaCfoEFAXJGmsWQd4bplk2"><b data-page-node-id="HsxlK9fjuQtG6GlRwvkFZg"><em data-count="180" data-page-node-id="TScX5mMPdn72UNb2GvYW4M">180</em><em data-page-node-id="NHBez7088YKuJI1TCWTits">人</em></b><span data-page-node-id="AA17sYR8iEzmsRndh6iZ7W">在职教师</span></div>
+    <div class="stat" data-page-node-id="FnEfjPxc6Fcr5XHxLQ4gFA"><b data-page-node-id="HPMDah38xIhJjMftTJiskg"><em data-count="2000" data-page-node-id="IkWWuK4a14HjCErN3NlV3N">2000</em><em data-page-node-id="Jcd7YMHcislQVWnfq4GbtW">+</em></b><span data-page-node-id="aGIMFGLKRamftBBvKfNju4">在校学生</span></div>
+    <div class="stat" data-page-node-id="WtKDJRi1hbODz3MIqspbSy"><b data-page-node-id="w8TUljNOXLCseVy85Azp3F"><em data-count="35" data-page-node-id="Rbdc9piRjw5ZDD81VwClh2">35</em><em data-page-node-id="YppFPpgdGYjx2dsRIkR0l0">个</em></b><span data-page-node-id="cMBBHSyCO7jhb4uZUu7qwI">教学班</span></div>
+  </div>
+</section>
+
+<!-- 艺体（暗色） -->
+<section class="dark" id="art">
+  <div class="col">
+    <div class="center rv">
+      <div class="eyebrow">艺术特色</div>
+      <h2 class="mega">五育并举<br>美育绽放</h2>
+      <p class="lead">新密市 2026 年中小学美育成果展演，矿中学子以舞蹈、合唱、器乐惊艳全场。</p>
+    </div>
+    <div class="gallery rv">
+      <img src="assets/dance1.jpg" alt="舞蹈 唐宫夜宴">
+      <img class="featured" src="assets/dance4.jpg" alt="唐宫夜宴谢幕全景">
+      <img src="assets/dance2.jpg" alt="唐宫夜宴演出">
+      <img src="assets/chorus1.jpg" alt="合唱 在灿烂的阳光下">
+      <img src="assets/chorus2.jpg" alt="合唱舞台全景">
+      <img src="assets/chorus4.jpg" alt="师生同台谢幕">
+      <img src="assets/artroom.jpg" alt="美术教室 石膏几何体素描习作">
+      <img src="assets/artclass.jpg" alt="美术课堂 画架前的学生们">
+      <img src="assets/music1.jpg" alt="器乐 春郊试马">
+    </div>
+    <div class="deck" id="deck">
+      <div class="deck-stage">
+        <div class="vcard is-active">
+          <video controls playsinline webkit-playsinline preload="none" poster="assets/p1.jpg" data-src="assets/vd2s.mp4"></video>
+          <div class="meta"><b>航拍矿中</b><span>校园全景 · 无人机视角</span></div>
+        </div>
+        <div class="vcard is-right">
+          <video controls playsinline webkit-playsinline preload="none" poster="assets/p2.jpg" data-src="assets/vd1s.mp4"></video>
+          <div class="meta"><b>雪夜矿中</b><span>校园四季 · 冬日剪影</span></div>
+        </div>
+        <div class="vcard is-left">
+          <video controls playsinline webkit-playsinline preload="none" poster="assets/p3.jpg" data-src="assets/vd3s.mp4"></video>
+          <div class="meta"><b>师生风采</b><span>最美教师颁奖典礼 · 校园日常</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="lead rv center" style="margin-top:40px;">郑州市传统体育篮球项目特色学校 · 2017 年入选教育部青少年篮球特色学校</p>
+  </div>
+</section>
+
+<!-- 培养力 -->
+<section class="center" data-page-node-id="AcJsN2GgjuCqGsHAqltQB1">
+  <div class="rv on" data-page-node-id="RTGWnNcA9SrKc2nHbniPNy">
+    <div class="eyebrow" data-page-node-id="X27M0WMo2ohmnVq2zfzB5h">培养能力</div>
+    <h2 class="mega" data-page-node-id="eJeAOMgfC4sAxsFuWTJrW9">低进高出<br data-page-node-id="ez5VUhMtAZALusLVvcKxq2">高进优出</h2>
+    <p class="lead" data-page-node-id="Gkf7HnvxwZX1FpoOiHfXHs">不比拼生源起点，只看重成长幅度。"低起点、小步子、快节奏"的教学原则，文化课与体育艺术并行的双升学通道——历届考试，成绩稳居同类学校第一。</p>
+  </div>
+</section>
+
+<!-- 校园 -->
+<section id="campus" style="padding-top:0;" data-page-node-id="lvrA7QNXyrDvBW34cTtE0E">
+  <div class="col" data-page-node-id="PNspjutLcVlGTPlpeMmdCN">
+    <div class="center rv on" data-page-node-id="tYHH29c6ve2wZQ9k5aNhP9">
+      <div class="eyebrow" data-page-node-id="XIhfJA1evxKBAdCgxjWwJJ">校园风貌</div>
+      <h2 class="mega" data-page-node-id="LDHRMDC9k8btDLW4YzVSMJ">绿茵葱葱<br>书声朗朗</h2>
+    </div>
+    <div class="cards" data-page-node-id="dqX5BLhCQTnop1lvPD4H2s">
+      <div class="card-photo rv rv-img on" data-page-node-id="FwpccBEC9NflnArbzlHeD2">
+        <img src="assets/stage.jpg" alt="操场主席台" data-parallax="0.05" data-page-node-id="zEwu8Y0SF03lQRNVUZJaVA" style="transform: translateY(-28.8px) scale(1.06);">
+        <div class="tag" data-page-node-id="aLsRBR0ulBY3FMhMNZhpxd">健康 · 尊重 · 特长 · 进步 · 幸福</div>
+      </div>
+      <div class="two" data-page-node-id="cD3W4SW56KcLKYF3Fvm9xf">
+        <div class="card-photo rv rv-img on" data-page-node-id="F5IPuGPACztc2UGiflRk1n">
+          <img src="assets/playground.jpg" alt="运动场" data-parallax="0.04" data-page-node-id="RX8Ck7cxDPb4uObRjPyz7A" style="transform: translateY(-9.6px) scale(1.06);">
+          <div class="tag" data-page-node-id="t2FCX4bw1TiaZqd4w3OqB2">以人为本 · 标准化塑胶运动场</div>
+        </div>
+        <div class="card-photo rv rv-img on" data-page-node-id="YltObZQlFBLBZZOIBn7Bqj">
+          <img src="assets/basketball.jpg" alt="篮球场" data-parallax="0.04" data-page-node-id="qc07DPdxVDaWt98k6b0jEZ" style="transform: translateY(-9.6px) scale(1.06);">
+          <div class="tag" data-page-node-id="8uH9qdANofbpdiCHSDJPHO">立德树人 · 教育部篮球特色学校</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 理念 -->
+<section class="center" data-page-node-id="7FwitqPcbAyq37HkfBeTSe">
+  <div class="rv on" data-page-node-id="7nUKDFYWGGyknFQD5qiEcb">
+    <div class="eyebrow" data-page-node-id="EGnkuxTkXcAdhFPk7V0tq0">办学理念</div>
+    <h2 class="mega" data-page-node-id="sm1iV1eg8btdE1YT1HO530">五个词<br>一所学校的答案</h2>
+  </div>
+  <div class="values rv on" data-page-node-id="CSdnDEaKaAXmtJxXzOLLGg">
+    <div class="value" data-page-node-id="J9WNfSLoebCpDSCZP8Gnqt"><div class="ch" data-page-node-id="YO2e2eKEebxDArP5fExyMr">健康</div><span data-page-node-id="aKZUtEQr5bOY8WYtBGuYdp">HEALTH</span></div>
+    <div class="value" data-page-node-id="X1K8o7YpvOOIQRLUMsn6df"><div class="ch" data-page-node-id="VTByho0jpHZFv5rHwlYS83">尊重</div><span data-page-node-id="vzdJEhBFtYUztu9LtmsVoB">RESPECT</span></div>
+    <div class="value" data-page-node-id="mBVME24X5TgKBBVgA3mbKW"><div class="ch" data-page-node-id="LnjdN27LWMcYEEy8DCFKCm">特长</div><span data-page-node-id="jOb51L4BbA0nSF9CaxjAWr">STRENGTH</span></div>
+    <div class="value" data-page-node-id="mMCKdtnIEQmvnVKDwKz7WE"><div class="ch" data-page-node-id="bhkCWmnxEYftDkv9kC2nVR">进步</div><span data-page-node-id="lBK8JGytoGp9FOCe1Xmpor">PROGRESS</span></div>
+    <div class="value" data-page-node-id="HtAt9yTlYqhFCppuAcYoDL"><div class="ch" data-page-node-id="lmLdQHf4Fo1svIcKGEenZD">幸福</div><span data-page-node-id="NsGNGV9n99QjAoLVE2lZZI">HAPPINESS</span></div>
+  </div>
+  <p class="lead rv on" style="margin-top:48px;" data-page-node-id="tQvPX1LzRWzmi9WAaITaRG">以"办人民满意，师生幸福"为总目标，走"内涵发展，特色强校"之路。</p>
+</section>
+
+<!-- 师资 -->
+<section style="padding-top:0;" data-page-node-id="3XcXgElGxua9mCrrUSzUCU">
+  <div class="col center rv on" data-page-node-id="OlWtpWbcVWtPFh1tLfj4dS">
+    <div class="eyebrow" data-page-node-id="Qwp1wRb6lW7HLHVuBVHqRc">师资力量</div>
+    <h2 class="mega" data-page-node-id="d5Wg9FuGPPb2SOfB54zuTv">名师荟萃</h2>
+    <p class="lead" data-page-node-id="SbYsjb7Ir6GphBUDXravKS">教职工全部具备本科及以上学历，研究生学历 32 人，高级职称 37 余人。学校实施"星级教师工程"，持续选送教师赴华中师范大学、浙江师范大学研修，更有教师曾赴波兰孔子学院执教。</p>
+  </div>
+  <div class="stats rv on" style="margin-top:64px;" data-page-node-id="ByB3O0YBBY6CROGSWQh2mT">
+    <div class="stat" data-page-node-id="64Kvta5tBAthlQ26pHl6HR"><b data-page-node-id="JsrjJqHnGHnQ6EgwN5FqBT"><em data-count="32" data-page-node-id="UbhWoStmrVCvciKtD9yYMs">32</em><em data-page-node-id="Hf9kEeA47cFrzBzuvepv19">人</em></b><span data-page-node-id="OBiogMrN3VCY5nKG6rDyXt">研究生学历</span></div>
+    <div class="stat" data-page-node-id="fAJROtAgYnVZiaEiLyH5EI"><b data-page-node-id="iwBKZcK6PhoY2kK5zubBHU"><em data-count="37" data-page-node-id="AHtUHTCsF0mCCHOswwktP9">37</em><em data-page-node-id="yv9WOX8D51uToX6U8Vovgn">+</em></b><span data-page-node-id="Xav0biWlAE9uDKxlKVdPCQ">高级职称</span></div>
+    <div class="stat" data-page-node-id="TYIGyx2SRdImPeu6y7vA6G"><b data-page-node-id="Iqq3EsEjIravF3Rj4pweXd"><em data-count="90" data-page-node-id="FkzcmiM3Hf1J0xi0CuKlHP">90</em><em data-page-node-id="PLCL0OyOkpv88GhfboCKqc">+</em></b><span data-page-node-id="fuzvyjJcLYfdoEROCmQnRF">中级职称</span></div>
+    <div class="stat" data-page-node-id="idK5HMg06LGbtXLU5EGn1x"><b data-page-node-id="vhTqRdRn53ws349iOSv9zu"><em data-count="100" data-page-node-id="1TEYDjYtBTyxvHCUAIKiPI">100</em><em data-page-node-id="PPHLXOGOXj3CEacBGUpAeb">%</em></b><span data-page-node-id="YDNk7WFIQZiCvusmUuq6nf">本科及以上</span></div>
+  </div>
+</section>
+
+<!-- 荣誉 -->
+<section id="honor" style="padding-top:0;" data-page-node-id="UTDaxsBM5e91SIuv8x3dEm">
+  <div class="col center rv on" data-page-node-id="YKz17IWbXyhWovLH6TvGYf">
+    <div class="eyebrow" data-page-node-id="yYfMkYhmpZ9sEffzgfHbOT">学校荣誉</div>
+    <h2 class="mega" data-page-node-id="JAwr9iEBDpnFgg0D7CqZiK">载誉前行</h2>
+  </div>
+  <div class="honor-list rv on" data-page-node-id="iC5oPBHz5Y19NVHB2pUCaF">
+    <div class="honor-item" data-page-node-id="1K7PFshFyAgoms1CYiVBJi">教育部青少年篮球特色学校<span data-page-node-id="3HtrUJmtqOBTJefj7PMCCt"><i data-page-node-id="xCnYjXq9dVixEWuaz1fBdM">2017</i></span></div>
+    <div class="honor-item" data-page-node-id="Fltl9dIsxv4dhHb3akNBbq">郑州市传统体育篮球项目特色学校<i data-page-node-id="QEgA0iPCtgeCOONMOrR8o1">体育特色</i></div>
+    <div class="honor-item" data-page-node-id="oRRmfgIucZV6NmWmOBglnc">郑州市文明学校 · 文明单位标兵<i data-page-node-id="DYvTykGMmHmToGKreD7eqp">文明创建</i></div>
+    <div class="honor-item" data-page-node-id="DNi0zEUrP8g7PXDXdqu2Ct">郑州市中小学德育工作先进单位 · 德育创新先进单位<i data-page-node-id="S9ueweAEhWzLO8yStxoBJm">德育</i></div>
+    <div class="honor-item" data-page-node-id="9ZKCJJVS7VJ2TAOeGSFsvE">郑州市教研先进单位<i data-page-node-id="D4wXvxxdiYA5K6itHLj8E5">教研</i></div>
+    <div class="honor-item" data-page-node-id="mbY2OBFDjlWmRjyeIH9opf">郑州市安全工作先进单位<i data-page-node-id="2GtnCp0YKRg8hGOB5UuQT1">安全</i></div>
+    <div class="honor-item" data-page-node-id="2YUeHR05aQhdx8BybVOS2q">郑州市科技创新大赛优秀组织单位<i data-page-node-id="mJ1wLOalVGAnnEQzFjHGHh">科创</i></div>
+    <div class="honor-item" data-page-node-id="5I6mVIXBRj1Ir1lsyM8SEc">郑州市绿色学校<i data-page-node-id="wCpfAEKZH15xpqThoU7y5t">生态</i></div>
+    <div class="honor-item" data-page-node-id="QljiGr7TWJsixfyLHdohmz">河南省一级达标食堂 · 河南省高考考点<i data-page-node-id="sGtBzuMrZerYiC6q6tiFuj">省级</i></div>
+  </div>
+</section>
+
+<!-- 招生 -->
+<section id="recruit" style="padding-top:0;" data-page-node-id="tRDDmAZewLJaVfvIAG6jLz">
+  <div class="col" data-page-node-id="0N6RvcMKKTPFaGnWGavyHL">
+    <div class="center rv on" data-page-node-id="TYtLYrryDo5iAAzLFp34NO">
+      <div class="eyebrow" data-page-node-id="qGzH3uXBr3dZvNyn90peZi">招生信息 · 2026</div>
+      <h2 class="mega" data-page-node-id="lVl9pjA6GvlZdeIh0OmOWr">相约矿中</h2>
+      <p class="lead" data-page-node-id="a8UGiw5TFiDzyNQIFkU0vA">按国家公办标准收费。优秀生可获学校奖学金，贫困生可享受国家助学金（每年 1000—3000 元）。</p>
+    </div>
+    <div class="recruit-grid rv on" data-page-node-id="JJRNTDkAjhXKTfK6Vj7ZaD">
+      <div class="r-card" data-page-node-id="zLF32d5i0r0ZnIV1j4muSg"><div class="k" data-page-node-id="PS7VBMrh13la3nFh7nxZYR">招生计划</div><div class="v" data-page-node-id="YxTfL2aQq0WLBSceymMMSz">550<em data-page-node-id="RECCBHUKUGj3cZFxlLTzeW"> 人（含艺术后备生 140 名）</em></div></div>
+      <div class="r-card" data-page-node-id="FVUVkKT8UJ0SeTLSXAORFW"><div class="k" data-page-node-id="36GMOBxsCBmfjEloJZuO2A">统招生录取线</div><div class="v" data-page-node-id="ABdJZi1yCggtZyjN1JYWvO">512.5<em data-page-node-id="lalJhAulCEbIGxeCL5hqx2"> 分</em></div></div>
+      <div class="r-card" data-page-node-id="UxpjkdSz7rX1mixee2sO9W"><div class="k" data-page-node-id="HTDKqDejAIGjcYCCzs8Y2h">体育后备生</div><div class="v" data-page-node-id="rhbOxcdCACOrfL3Nas6RpT">338.5<em data-page-node-id="8GnfwzXlUmM4xr2DTWyW5i"> 分</em></div></div>
+      <div class="r-card" data-page-node-id="XlQttZpaJnZxmcBWewRs8r"><div class="k" data-page-node-id="pUo4MORk6VR2BsxAvmxk2S">美术 / 音乐声乐</div><div class="v" data-page-node-id="dYT2FzcFIof112ukDmm2IH">341.5<em data-page-node-id="n0pCb98dTq2XeoVEKSLRap"> / 372.5 分</em></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 锦囊 -->
+<section style="padding-top:0;" data-page-node-id="Wr8tyWGdTJeQd1WqjWq6Km">
+  <div class="col" data-page-node-id="9J3xMSzmuCByKVZPITlbeg">
+    <div class="center rv on" data-page-node-id="HlExe5bBStSYav2aY31XNA">
+      <div class="eyebrow" data-page-node-id="enHAWT0X4gSiKNrYlJl323">新生锦囊</div>
+      <h2 class="mega" data-page-node-id="1i3Fu0FjNxlfkjD5XoNDcA">开学不慌</h2>
+      <p class="lead" data-page-node-id="m6NZVXCwbSLxUDeAyhR4Rm">来自学长学姐的矿中速通技巧，帮你快速适应校园生活。</p>
+    </div>
+    <div class="tips" data-page-node-id="yPg2djzKeFUYT5nBEGmBXP">
+      <div class="tip rv on" data-page-node-id="AgTFnj6CHOZDRKkYOqBgv2">
+        <h4 data-page-node-id="ZTLIOIaoWmc4kHIz6ST14D"><i data-page-node-id="V1Sddzb3qdUTY0VoOeSJGY">01</i>饭卡与小卖部</h4>
+        <p data-page-node-id="ESxufJgz5VLRJqk5N6AdvW">饭卡支持线上充值，也可在大餐厅前门窗口线下充值，一周约 100—150 元。大卖部在男寝门口，品类全、品质有保障，建议优先选购。</p>
+      </div>
+      <div class="tip rv on" style="transition-delay:.08s;" data-page-node-id="CXQfaI5mNSM5Lfddu8OG1s">
+        <h4 data-page-node-id="FyrRvvMOplH6nnVbgI7D8d"><i data-page-node-id="XZYaYEiKPciNYOzFeGLbUR">02</i>宿舍</h4>
+        <p data-page-node-id="ULMLQc6QNq9jo8ztcaTFlV">每间寝室 8 人，均配备空调。建议自备床垫与蓝色系床品（军训统一要求蓝色系床单被罩）。</p>
+      </div>
+      <div class="tip rv on" style="transition-delay:.16s;" data-page-node-id="bBQkDCSCt4IEwkw9chKmaa">
+        <h4 data-page-node-id="quXH60Szxfjd3rMu8AwM7a"><i data-page-node-id="L1rJHbZQB02b12ewPvokZz">03</i>分班</h4>
+        <p data-page-node-id="TdgWPPssrR9laWYK8UsS2A">一层一个年级段，每段八个班，教室均配备双空调。艺术生班为音美服班与体育班。二楼高一、三楼高二、四楼高三。</p>
+      </div>
+      <div class="tip rv on" style="transition-delay:.24s;" data-page-node-id="9B0YczzLOgvGG9MGmGnarz">
+        <h4 data-page-node-id="xeG5fUgix85EfvJoDumbtV"><i data-page-node-id="2EDE6EzT9SI3ZGs0S8TVNO">04</i>团员与学生会</h4>
+        <p data-page-node-id="xRPuMNRm4sjOcBSfbGZkfg">团员评比重人品、重表现，由班级公开演讲投票产生；加入学生会可获优先推荐。新高一每段至少选拔十名学生会成员，开学初期的纪律表现是关键。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系 -->
+<section class="contact-band" id="contact" data-page-node-id="ScWIKoX55AyZf42wd1BaF4">
+  <div class="col center" data-page-node-id="fXSDzeTO4PK4nJZYCMCdcG">
+    <div class="rv on" data-page-node-id="TTOQx1LvPk8WLFznTse1di">
+      <div class="eyebrow" data-page-node-id="DzidhVyikjLZSxIzfogLJe">联系我们</div>
+      
+    </div>
+    <div class="contact-grid rv on" style="text-align:left;" data-page-node-id="BzraMSwD6ITd836S8NsY2i">
+      <div class="c-item" data-page-node-id="3z3LPepXW8VqNGppDDYVqQ"><b data-page-node-id="TG5H6zKWgTTVg3C07PlxoN">地址</b><p data-page-node-id="FElvQpF879oRvgceGV7XJh">河南省新密市新岗路 1 号</p></div>
+      <div class="c-item" data-page-node-id="VGUO7XR0aVRoNiZpu5qeMv"><b data-page-node-id="jY8CtAL4xGn1Gkr3dusZdn">电话</b><p data-page-node-id="7cZIBgHVaWuFncWzNodFqX"><a href="tel:0371-69783641" data-page-node-id="8RpBMUNi7FgBxKg4Hr6F5y">0371-69783641</a></p></div>
+      <div class="c-item" data-page-node-id="83bV889QyPvA9eyXvCJEEx"><b data-page-node-id="CGzyJFG6QnQskiCb32OlJO">公交</b><p data-page-node-id="QKPdPEXEpZPtU7Yfz6LcQc">市内乘 1 / 2 / 5 / 6 路可达</p></div>
+    </div>
+  </div>
+</section>
+
+<footer data-page-node-id="rMDKUvl66X7iA8zY3aZBLg">
+  <div class="fm" data-page-node-id="7tAiX1QytLfMLj7IXmnEBI">自强不息 · 崇德爱国</div>
+  <p data-page-node-id="6hodmL85ErFYbXd3UmzFJl">新密市矿区中学 · 新密市第一高级中学共建学校<br data-page-node-id="rJCMoMU0c2RzTVKxRJGf5j">办人民满意的教育，创师生幸福的校园</p>
+</footer>
+
+<script>
+(function(){
+  /* reveal on scroll */
+  var els=document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target);}
+      });
+    },{threshold:.15});
+    els.forEach(function(e){io.observe(e);});
+  }else{els.forEach(function(e){e.classList.add("on");});}
+
+  /* hero image zoom-out on load */
+  var hm=document.getElementById("heroImg");
+  requestAnimationFrame(function(){setTimeout(function(){hm.classList.add("on");},300);});
+
+  /* subtle parallax — batch every read before any write to avoid layout thrash */
+  var ps=[].slice.call(document.querySelectorAll("[data-parallax]"));
+  var ticking=false;
+  function onScroll(){
+    if(ticking)return;ticking=true;
+    requestAnimationFrame(function(){
+      var jobs=[];
+      ps.forEach(function(el){
+        var r=el.getBoundingClientRect();
+        if(r.bottom<0||r.top>innerHeight)return;
+        var f=parseFloat(el.getAttribute("data-parallax"))||0.06;
+        var parent=el.closest(".rv-img");
+        jobs.push({el:el,off:(r.top+r.height/2-innerHeight/2)*f,on:!!(parent&&parent.classList.contains("on"))});
+      });
+      jobs.forEach(function(j){
+        j.el.style.transform="translateY("+j.off.toFixed(1)+"px) scale("+(j.on?"1.06":"1.12")+")";
+      });
+      ticking=false;
+    });
+  }
+  addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+  /* count-up */
+  function countUp(el){
+    var target=parseInt(el.getAttribute("data-count"),10);
+    var t0=null,dur=1400;
+    function step(t){
+      if(!t0)t0=t;
+      var p=Math.min((t-t0)/dur,1);
+      var e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*e);
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var counters=document.querySelectorAll("[data-count]");
+  if("IntersectionObserver" in window){
+    var io2=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){countUp(e.target);io2.unobserve(e.target);}
+      });
+    },{threshold:.5});
+    counters.forEach(function(c){io2.observe(c);});
+  }else{counters.forEach(countUp);}
+
+  /* folded video deck — one decoder, rAF drag, one uninterrupted transition */
+  var deck=document.getElementById("deck");
+  if(deck){
+    var cards=[].slice.call(deck.querySelectorAll(".vcard"));
+    var stage=deck.querySelector(".deck-stage");
+    var n=cards.length,cur=0;
+    var startX=null,startY=null,pending=false,dragging=false,swiped=false;
+    var rafId=null,lastDx=0;
+
+    function syncSource(c,active){
+      var v=c.querySelector("video");
+      if(!v)return;
+      if(active){
+        v.setAttribute("preload","metadata");
+        if(!v.getAttribute("src"))v.setAttribute("src",v.getAttribute("data-src"));
+      }else{
+        if(!v.paused)v.pause();
+        v.setAttribute("preload","none");
+      }
+    }
+    function layout(){
+      cards.forEach(function(c,i){
+        var rel=(i-cur+n)%n;
+        c.classList.remove("is-active","is-left","is-right");
+        c.style.transform="";
+        if(rel===0)c.classList.add("is-active");
+        else if(rel===1)c.classList.add("is-right");
+        else c.classList.add("is-left");
+        syncSource(c,rel===0);
+      });
+    }
+    function go(i){cur=(i%n+n)%n;layout();}
+    layout();
+
+    function applyDrag(dx){
+      var a=cards[cur],r=cards[(cur+1)%n],l=cards[(cur+2)%n];
+      a.style.transform="translateX("+(dx*.5).toFixed(1)+"px) rotateY("+(-dx*.05).toFixed(1)+"deg) scale("+(1-Math.abs(dx)/4500).toFixed(3)+")";
+      r.style.transform="translateX("+(60-dx*.10).toFixed(1)+"%) rotateY("+(-30+dx*.02).toFixed(1)+"deg) scale(.82)";
+      l.style.transform="translateX("+(-60-dx*.10).toFixed(1)+"%) rotateY("+(30+dx*.02).toFixed(1)+"deg) scale(.82)";
+    }
+    cards.forEach(function(c,i){
+      c.addEventListener("click",function(e){
+        if(swiped||c.classList.contains("is-active"))return;
+        e.preventDefault();
+        go(i);
+      });
+    });
+
+    /* a tap on the play button must never start a drag */
+    stage.addEventListener("pointerdown",function(e){
+      if(e.button!==undefined&&e.button!==0)return;
+      pending=true;dragging=false;startX=e.clientX;startY=e.clientY;
+    });
+    window.addEventListener("pointermove",function(e){
+      if(!pending&&!dragging)return;
+      var dx=e.clientX-startX,dy=e.clientY-startY;
+      if(pending){
+        if(Math.abs(dx)<9||Math.abs(dx)<=Math.abs(dy))return;
+        pending=false;dragging=true;deck.classList.add("dragging");
+      }
+      lastDx=Math.max(-180,Math.min(180,dx));
+      if(rafId)return;
+      rafId=requestAnimationFrame(function(){rafId=null;applyDrag(lastDx);});
+    },{passive:true});
+    function endDrag(dx){
+      pending=false;
+      if(rafId){cancelAnimationFrame(rafId);rafId=null;}
+      if(!dragging){dragging=false;startX=null;startY=null;return;}
+      dragging=false;startX=null;startY=null;
+      var flip=Math.abs(dx)>36;
+      deck.classList.remove("dragging");
+      void stage.offsetWidth;
+      if(flip){
+        swiped=true;
+        go(dx<0?cur+1:cur-1);
+        setTimeout(function(){swiped=false;},140);
+      }else{
+        cards.forEach(function(c){c.style.transform="";});
+      }
+    }
+    window.addEventListener("pointerup",function(e){
+      if(startX===null){pending=false;dragging=false;return;}
+      endDrag(e.clientX-startX);
+    });
+    window.addEventListener("pointercancel",function(){endDrag(0);});
+    document.addEventListener("keydown",function(e){
+      var r=deck.getBoundingClientRect();
+      if(r.bottom<0||r.top>innerHeight)return;
+      if(e.key==="ArrowLeft")go(cur-1);
+      if(e.key==="ArrowRight")go(cur+1);
+    });
+  }
+
+  /* video mutual exclusion + stop decoding when the deck leaves the viewport */
+  var vs=[].slice.call(document.querySelectorAll("video"));
+  function syncPlaying(){
+    if(deck)deck.classList.toggle("playing",vs.some(function(v){return !v.paused&&!v.ended;}));
+  }
+  vs.forEach(function(v){
+    v.addEventListener("play",function(){
+      vs.forEach(function(o){if(o!==v&&!o.paused)o.pause();});
+      syncPlaying();
+    });
+    v.addEventListener("pause",syncPlaying);
+    v.addEventListener("ended",syncPlaying);
+  });
+  if("IntersectionObserver" in window){
+    if(deck){
+      var vio=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting)return;
+          vs.forEach(function(v){if(!v.paused)v.pause();});
+        });
+      },{threshold:0});
+      vio.observe(deck);
+    }
+    var darkSec=document.querySelector(".dark");
+    if(darkSec){
+      var nio=new IntersectionObserver(function(es){
+        es.forEach(function(e){document.body.classList.toggle("dark-in-view",e.isIntersecting);});
+      },{threshold:0});
+      nio.observe(darkSec);
+    }
+  }
+
+  /* ===== Loading animation — replay on every entry / refresh / return ===== */
+  var veil=document.getElementById("intro");
+  var fiEls=[].slice.call(document.querySelectorAll(".fi"));
+  var hmEl=document.getElementById("heroImg");
+  var lastRun=0,hiddenAt=0,veilT1=null,veilT2=null,fiT=null;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if("scrollRestoration" in history)history.scrollRestoration="manual";
+
+  function showVeil(){
+    /* clone + replace forces every inner CSS animation to restart from frame 0 */
+    var fresh=veil.cloneNode(true);
+    fresh.classList.remove("hide");
+    fresh.style.display="flex";
+    veil.parentNode.replaceChild(fresh,veil);
+    veil=fresh;
+    clearTimeout(veilT1);clearTimeout(veilT2);
+    veilT1=setTimeout(function(){veil.classList.add("hide");},780);
+    veilT2=setTimeout(function(){veil.style.display="none";},1240);
+  }
+  function runIntro(force,toTop){
+    var now=Date.now();
+    if(!force&&now-lastRun<1500)return;
+    lastRun=now;
+    if(toTop&&!location.hash)window.scrollTo(0,0);
+    if(reduce){if(veil)veil.style.display="none";return;}
+    fiEls.forEach(function(el){
+      el.classList.remove("settled");
+      el.style.animation="none";void el.offsetWidth;el.style.animation="";
+    });
+    clearTimeout(fiT);
+    fiT=setTimeout(function(){fiEls.forEach(function(el){el.classList.add("settled");});},1400);
+    if(veil)showVeil();
+    if(hmEl){
+      hmEl.classList.remove("on");void hmEl.offsetWidth;
+      requestAnimationFrame(function(){setTimeout(function(){hmEl.classList.add("on");},260);});
+    }
+  }
+
+  runIntro(true,true);
+  window.addEventListener("pageshow",function(e){runIntro(!!e.persisted,true);});
+  document.addEventListener("visibilitychange",function(){
+    if(document.hidden){hiddenAt=Date.now();return;}
+    if(hiddenAt&&Date.now()-hiddenAt>1200){hiddenAt=0;runIntro(false,false);}
+  });
+  window.addEventListener("focus",function(){
+    if(document.visibilityState==="visible")runIntro(false,false);
+  });
+})();
+</script>
+
+
+</body></html>
