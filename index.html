@@ -3,6 +3,17 @@
 <meta charset="UTF-8" data-page-node-id="JRlA2ouWSXzeUOLfhhIAqr">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="qJk3XPC2BJLDPFzlpBAJ4k">
 <title>新密市矿区中学 · 自强不息 崇德爱国</title>
+<script>
+  /* 揭幕动画只在首次进入本站时播放一次；之后刷新、切后台、返回、点击都不再出现。
+     如需临时重看动画，在网址后加 ?intro=1 即可 */
+  (function(){
+    try{
+      var force=/(?:^|[?&])intro=1(?:&|$)/.test(location.search);
+      if(!force && localStorage.getItem("kqzx_intro_seen")==="1")
+        document.documentElement.classList.add("intro-done");
+    }catch(e){}
+  })();
+</script>
 <style>
   :root{
     --bg:#fbfbfd;
@@ -67,7 +78,7 @@
   @keyframes rise{to{opacity:1;transform:none;}}
   .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.5s}
 
-  /* ---------- Intro veil (replays on every entry) ---------- */
+  /* ---------- Intro veil (first visit only) ---------- */
   .intro{
     position:fixed;inset:0;z-index:9999;background:#fbfbfd;pointer-events:none;
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
@@ -75,6 +86,8 @@
     animation:introFallback .01s linear 2.6s forwards;
   }
   .intro.hide{opacity:0;}
+  .intro-done .intro{display:none!important;animation:none!important;}
+  .intro-done .fi{opacity:1!important;transform:none!important;animation:none!important;}
   .intro img{width:66px;height:66px;border-radius:50%;object-fit:cover;
     opacity:0;transform:scale(.9);animation:introPop .5s var(--ease) forwards;}
   .intro .intro-name{font-size:16px;font-weight:600;letter-spacing:.28em;color:#1d1d1f;
@@ -512,7 +525,7 @@
 
 <footer data-page-node-id="rMDKUvl66X7iA8zY3aZBLg">
   <div class="fm" data-page-node-id="7tAiX1QytLfMLj7IXmnEBI">自强不息 · 崇德爱国</div>
-  <p data-page-node-id="6hodmL85ErFYbXd3UmzFJl">新密市矿区中学 · 新密市第一高级中学共建学校<br data-page-node-id="rJCMoMU0c2RzTVKxRJGf5j">办人民满意的教育，创师生幸福的校园</p>
+  <p data-page-node-id="6hodmL85ErFYbXd3UmzFJl">新密市矿区中学<br data-page-node-id="rJCMoMU0c2RzTVKxRJGf5j">办人民满意的教育，创师生幸福的校园</p>
 </footer>
 
 <script>
@@ -702,53 +715,47 @@
     }
   }
 
-  /* ===== Loading animation — replay on every entry / refresh / return ===== */
+  /* ===== Loading animation — first visit only, never replay ===== */
   var veil=document.getElementById("intro");
   var fiEls=[].slice.call(document.querySelectorAll(".fi"));
   var hmEl=document.getElementById("heroImg");
-  var lastRun=0,hiddenAt=0,veilT1=null,veilT2=null,fiT=null;
+  var veilT1=null,veilT2=null,fiT=null;
   var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var introDone=document.documentElement.classList.contains("intro-done");
   if("scrollRestoration" in history)history.scrollRestoration="manual";
 
-  function showVeil(){
-    /* clone + replace forces every inner CSS animation to restart from frame 0 */
-    var fresh=veil.cloneNode(true);
-    fresh.classList.remove("hide");
-    fresh.style.display="flex";
-    veil.parentNode.replaceChild(fresh,veil);
-    veil=fresh;
-    clearTimeout(veilT1);clearTimeout(veilT2);
-    veilT1=setTimeout(function(){veil.classList.add("hide");},780);
-    veilT2=setTimeout(function(){veil.style.display="none";},1240);
+  function markSeen(){try{localStorage.setItem("kqzx_intro_seen","1");}catch(e){}}
+  function settle(){
+    fiEls.forEach(function(el){el.classList.add("settled");});
+    if(hmEl)hmEl.classList.add("on");
   }
-  function runIntro(force,toTop){
-    var now=Date.now();
-    if(!force&&now-lastRun<1500)return;
-    lastRun=now;
-    if(toTop&&!location.hash)window.scrollTo(0,0);
-    if(reduce){if(veil)veil.style.display="none";return;}
+  function playIntro(){
+    if(!location.hash)window.scrollTo(0,0);
+    if(reduce){if(veil){veil.style.display="none";veil.classList.add("hide");}settle();markSeen();return;}
     fiEls.forEach(function(el){
       el.classList.remove("settled");
       el.style.animation="none";void el.offsetWidth;el.style.animation="";
     });
     clearTimeout(fiT);
-    fiT=setTimeout(function(){fiEls.forEach(function(el){el.classList.add("settled");});},1400);
-    if(veil)showVeil();
+    fiT=setTimeout(settle,1400);
+    if(veil){
+      clearTimeout(veilT1);clearTimeout(veilT2);
+      veilT1=setTimeout(function(){veil.classList.add("hide");},780);
+      veilT2=setTimeout(function(){veil.style.display="none";},1240);
+    }
     if(hmEl){
       hmEl.classList.remove("on");void hmEl.offsetWidth;
       requestAnimationFrame(function(){setTimeout(function(){hmEl.classList.add("on");},260);});
     }
+    markSeen();
   }
 
-  runIntro(true,true);
-  window.addEventListener("pageshow",function(e){runIntro(!!e.persisted,true);});
-  document.addEventListener("visibilitychange",function(){
-    if(document.hidden){hiddenAt=Date.now();return;}
-    if(hiddenAt&&Date.now()-hiddenAt>1200){hiddenAt=0;runIntro(false,false);}
-  });
-  window.addEventListener("focus",function(){
-    if(document.visibilityState==="visible")runIntro(false,false);
-  });
+  if(introDone){
+    if(veil){veil.style.display="none";veil.classList.add("hide");}
+    settle();
+  }else{
+    playIntro();
+  }
 })();
 </script>
 
