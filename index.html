@@ -102,6 +102,27 @@
   @keyframes introFallback{to{opacity:0;visibility:hidden;}}
   @media(prefers-reduced-motion:reduce){.intro{display:none;}}
 
+  /* ---------- 竖屏横屏建议：与揭幕层同屏出现，仅首次访问 ---------- */
+  .land-hint{
+    position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));z-index:10000;
+    display:flex;align-items:center;gap:9px;
+    background:rgba(255,255,255,.96);
+    border:1px solid rgba(0,0,0,.08);border-radius:100px;padding:10px 16px;
+    box-shadow:0 8px 26px rgba(0,0,0,.07);
+    color:#1d1d1f;font-size:12.5px;white-space:nowrap;cursor:pointer;
+    opacity:0;transform:translate(-50%,14px);pointer-events:none;
+    transition:opacity .45s var(--ease),transform .45s var(--ease);
+  }
+  .land-hint.on{opacity:1;transform:translate(-50%,0);pointer-events:auto;}
+  .land-hint svg{flex:none;animation:landRotate 2.6s var(--ease) 2;}
+  @keyframes landRotate{0%,20%{transform:rotate(0)}45%,70%{transform:rotate(90deg)}100%{transform:rotate(0)}}
+  .intro-done .land-hint{display:none!important;}
+  @media(min-width:901px),(orientation:landscape){.land-hint{display:none!important;}}
+  @media(prefers-reduced-motion:reduce){
+    .land-hint{transition:none;}
+    .land-hint svg{animation:none;transform:rotate(90deg);}
+  }
+
   /* ---------- Generic section ---------- */
   section{padding:130px 22px;}
   .col{max-width:1024px;margin:0 auto;}
@@ -301,6 +322,11 @@
   <div class="intro-name">新密市矿区中学</div>
   <div class="intro-est">EST. 1961</div>
   <div class="intro-bar"><i></i></div>
+</div>
+
+<div id="landHint" class="land-hint" role="status" aria-label="横屏观看，视野更开阔">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+  <span>横屏观看，视野更开阔</span>
 </div>
 
 <nav data-page-node-id="ySBG0uDEXywAZXRplMNrDp">
@@ -717,9 +743,10 @@
 
   /* ===== Loading animation — first visit only, never replay ===== */
   var veil=document.getElementById("intro");
+  var landHint=document.getElementById("landHint");
   var fiEls=[].slice.call(document.querySelectorAll(".fi"));
   var hmEl=document.getElementById("heroImg");
-  var veilT1=null,veilT2=null,fiT=null;
+  var veilT1=null,veilT2=null,fiT=null,hintT1=null,hintT2=null;
   var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var introDone=document.documentElement.classList.contains("intro-done");
   if("scrollRestoration" in history)history.scrollRestoration="manual";
@@ -729,15 +756,26 @@
     fiEls.forEach(function(el){el.classList.add("settled");});
     if(hmEl)hmEl.classList.add("on");
   }
+  function showHint(){if(landHint)landHint.classList.add("on");}
+  function hideHint(){if(landHint)landHint.classList.remove("on");}
+  if(landHint)landHint.addEventListener("click",hideHint);
   function playIntro(){
     if(!location.hash)window.scrollTo(0,0);
-    if(reduce){if(veil){veil.style.display="none";veil.classList.add("hide");}settle();markSeen();return;}
+    if(reduce){
+      if(veil){veil.style.display="none";veil.classList.add("hide");}
+      settle();showHint();
+      clearTimeout(hintT2);hintT2=setTimeout(hideHint,3600);
+      markSeen();return;
+    }
     fiEls.forEach(function(el){
       el.classList.remove("settled");
       el.style.animation="none";void el.offsetWidth;el.style.animation="";
     });
     clearTimeout(fiT);
     fiT=setTimeout(settle,1400);
+    clearTimeout(hintT1);clearTimeout(hintT2);
+    hintT1=setTimeout(showHint,220);   /* 提示在揭幕画面播放中就淡入 */
+    hintT2=setTimeout(hideHint,4300); /* 延续到首页几秒后自动收起 */
     if(veil){
       clearTimeout(veilT1);clearTimeout(veilT2);
       veilT1=setTimeout(function(){veil.classList.add("hide");},780);
@@ -752,6 +790,7 @@
 
   if(introDone){
     if(veil){veil.style.display="none";veil.classList.add("hide");}
+    hideHint();
     settle();
   }else{
     playIntro();
