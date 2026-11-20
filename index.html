@@ -363,50 +363,55 @@
   }
 
   /* ===== TEXT MOTION START ===== */
-  /* 分层文字动效 · C 版：眉标纯淡入 / 标题字距聚焦淡入 / 说明小字按句浮现 */
+  /* 分层文字动效 · B 版：眉标字距收紧 / 标题逐行遮罩上推 / 说明小字从左往右揭开 */
   :root{
     --tm-ease:cubic-bezier(.22,.61,.36,1);
-    --tm-title:.95s;
-    --tm-note:.7s;
+    --tm-title:.9s;
+    --tm-note:1.05s;
   }
   .rv.tx{opacity:1;transform:none;transition:none;}
   .rv.tx.on{opacity:1;transform:none;}
 
-  /* ① 蓝色眉标：纯淡入，最快收尾，无位移、无字距变化 */
+  /* ① 眉标：字距由松收紧 + 轻浮入（最短、最先） */
   .rv.tx .eyebrow{
-    opacity:0;transform:none;letter-spacing:.35em;
-    transition:opacity .5s var(--ease);
+    opacity:0;transform:translateY(6px);letter-spacing:.55em;
+    transition:opacity .7s var(--ease),transform .7s var(--tm-ease),letter-spacing .7s var(--tm-ease);
   }
-  .rv.tx.on .eyebrow{opacity:1;letter-spacing:.35em;}
+  .rv.tx.on .eyebrow{opacity:1;transform:none;letter-spacing:.35em;}
 
-  /* ② 黑体标题：字距由松收紧 + 轻微放大淡入，逐行错开 120ms，全程无遮罩 */
-  h2.mega .ln,.tip h4 .ln,.contact-grid .c-item b .ln{display:block;}
+  /* ② 标题：逐行遮罩上推（有方向、有重量） */
+  h2.mega .ln,.tip h4 .ln,.contact-grid .c-item b .ln{
+    display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em;
+  }
   h2.mega .ln-i,.tip h4 .ln-i,.contact-grid .c-item b .ln-i{
-    display:block;opacity:0;transform:scale(.97);letter-spacing:.06em;
-    transition:transform var(--tm-title) var(--tm-ease),
-               opacity calc(var(--tm-title) * .8) ease,
-               letter-spacing var(--tm-title) var(--tm-ease);
-    transition-delay:calc(var(--ln,0) * .12s + .08s);
+    display:block;opacity:0;transform:translateY(108%);
+    transition:transform var(--tm-title) var(--tm-ease),opacity calc(var(--tm-title) * .8) ease;
+    transition-delay:calc(var(--ln,0) * .09s + .06s);
   }
   .rv.tx.on h2.mega .ln-i,
   .rv.tx.on h4 .ln-i,
-  .rv.tx.on .c-item b .ln-i{opacity:1;transform:scale(1);letter-spacing:.01em;}
+  .rv.tx.on .c-item b .ln-i{opacity:1;transform:none;}
   /* 锦囊卡片标题原本是 flex（圆形序号 + 文字），拆行后在内层还原间距 */
   .tip h4 .ln-i{display:flex;align-items:center;gap:10px;}
 
-  /* ③ 说明小字：按句拆开，逐句轻浮入（每句错开 160ms），不横向揭开 */
-  .rv.tx .lead,.rv.lead,.tip.rv.tx p,.rv.tx .c-item p{
-    opacity:1;transform:none;
-    -webkit-clip-path:none;clip-path:none;transition:none;
+  /* ③ 说明小字：从左往右柔和揭开 + 淡入（安静、比标题晚一拍） */
+  .rv.tx .lead,.tip.rv.tx p,.rv.tx .c-item p,.rv.lead{
+    -webkit-clip-path:inset(0 100% 0 0);clip-path:inset(0 100% 0 0);
+    opacity:0;transform:none;
+    transition:clip-path var(--tm-note) var(--tm-ease) .2s,
+               -webkit-clip-path var(--tm-note) var(--tm-ease) .2s,
+               opacity var(--tm-note) ease .2s;
   }
-  .rv.tx .lead .sent,.rv.lead .sent,.tip.rv.tx p .sent,.rv.tx .c-item p .sent{
-    display:block;opacity:0;transform:translateY(10px);
-    transition:opacity var(--tm-note) var(--tm-ease),
-                transform var(--tm-note) var(--tm-ease);
-    transition-delay:var(--sd,.22s);
+  .rv.tx.on .lead,.tip.rv.tx.on p,.rv.tx.on .c-item p,
+  .rv.lead.on{
+    -webkit-clip-path:inset(0 0 0 0);clip-path:inset(0 0 0 0);opacity:1;
   }
-  .rv.tx.on .lead .sent,.rv.lead.on .sent,
-  .tip.rv.tx.on p .sent,.rv.tx.on .c-item p .sent{opacity:1;transform:none;}
+  .rv.lead{position:relative;}
+  /* 老浏览器不支持 clip-path 时退化为横向轻滑入 */
+  @supports not (clip-path:inset(0 100% 0 0)){
+    .rv.tx .lead,.tip.rv.tx p,.rv.tx .c-item p,.rv.lead{transform:translateX(-16px);}
+    .rv.tx.on .lead,.tip.rv.tx.on p,.rv.tx.on .c-item p,.rv.lead.on{transform:none;}
+  }
 
   /* ④ 数字下方的说明标签：极轻淡入，跟随计数节奏 */
   .stats .stat span{
@@ -419,21 +424,20 @@
   .stats .stat:nth-child(3) span{transition-delay:.22s;}
   .stats .stat:nth-child(4) span{transition-delay:.28s;}
 
-  /* 触屏 / 手机：时长略收，保持顺滑 */
+  /* 触屏 / 手机：幅度与时长略收，保持顺滑 */
   @media(max-width:720px){
-    :root{--tm-title:.78s;--tm-note:.6s;}
+    :root{--tm-title:.72s;--tm-note:.85s;}
+    .rv.tx .eyebrow{letter-spacing:.48em;}
   }
   /* 减弱动态效果：所有分层文字直接落最终态 */
   @media(prefers-reduced-motion:reduce){
     .rv.tx .eyebrow{opacity:1!important;transform:none!important;letter-spacing:.35em!important;transition:none!important;}
     .rv.tx h2.mega .ln-i,.rv.tx h4 .ln-i,.rv.tx .c-item b .ln-i{
-      opacity:1!important;transform:none!important;letter-spacing:.01em!important;transition:none!important;
-    }
-    .rv.tx .lead,.rv.lead,.tip.rv.tx p,.rv.tx .c-item p{
       opacity:1!important;transform:none!important;transition:none!important;
     }
-    .rv.tx .lead .sent,.rv.lead .sent,.tip.rv.tx p .sent,.rv.tx .c-item p .sent{
-      opacity:1!important;transform:none!important;transition:none!important;
+    .rv.tx .lead,.tip.rv.tx p,.rv.tx .c-item p,.rv.lead{
+      -webkit-clip-path:none!important;clip-path:none!important;opacity:1!important;
+      transform:none!important;transition:none!important;
     }
     .stats .stat span{opacity:1!important;transform:none!important;transition:none!important;}
   }
@@ -442,10 +446,10 @@
   .tips .tip:nth-child(2) .ln-i{transition-delay:.14s;}
   .tips .tip:nth-child(3) .ln-i{transition-delay:.22s;}
   .tips .tip:nth-child(4) .ln-i{transition-delay:.30s;}
-  .tips .tip:nth-child(1) p .sent{transition-delay:.18s;}
-  .tips .tip:nth-child(2) p .sent{transition-delay:.26s;}
-  .tips .tip:nth-child(3) p .sent{transition-delay:.34s;}
-  .tips .tip:nth-child(4) p .sent{transition-delay:.42s;}
+  .tips .tip:nth-child(1) p{transition-delay:.18s;}
+  .tips .tip:nth-child(2) p{transition-delay:.26s;}
+  .tips .tip:nth-child(3) p{transition-delay:.34s;}
+  .tips .tip:nth-child(4) p{transition-delay:.42s;}
   /* ===== TEXT MOTION END ===== */
 </style>
 <style id="__dm_no_drag_style__">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
@@ -691,7 +695,7 @@
 <script>
 (function(){
 
-  /* 分层文字动效 C：把标题按 <br> 拆成逐行容器，供 CSS 逐行聚焦淡入 */
+  /* 分层文字动效 B：把标题按 <br> 拆成逐行容器，供 CSS 逐行遮罩上推 */
   (function(){
     var nodes=document.querySelectorAll("h2.mega, .tip h4, .contact-grid .c-item b");
     [].forEach.call(nodes,function(el){
@@ -701,31 +705,6 @@
         html+='<span class="ln"><span class="ln-i" style="--ln:'+i+'">'+parts[i]+'</span></span>';
       }
       el.innerHTML=html;
-    });
-  })();
-
-  /* 分层文字动效 C：把说明文字按句号拆成短句，供 CSS 逐句浮入 */
-  (function(){
-    var nodes=document.querySelectorAll(".rv.tx .lead,.rv.lead,.tip.rv.tx p,.rv.tx .c-item p");
-    [].forEach.call(nodes,function(el){
-      if(el.querySelector(".sent"))return;
-      var html=el.innerHTML.trim();
-      if(!html)return;
-      /* 含内联标签时不拆句，整体包一层，避免破坏原有结构 */
-      if(/<[a-z]/i.test(html)){
-        el.innerHTML='<span class="sent">'+html+'</span>';
-        return;
-      }
-      var parts=[],buf='';
-      for(var k=0;k<html.length;k++){
-        buf+=html.charAt(k);
-        if(html.charAt(k)==='。'){parts.push(buf);buf='';}
-      }
-      if(buf)parts.push(buf);
-      if(!parts.length)return;
-      el.innerHTML=parts.map(function(x,n){
-        return '<span class="sent" style="--sd:'+(0.22+n*0.16).toFixed(2)+'s">'+x+'</span>';
-      }).join('');
     });
   })();
 
